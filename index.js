@@ -1,2 +1,2 @@
-const quiz = require('./candidate-testing');
-quiz.runProgram();
+let phrase = "JavaScript rocks!";
+console.log(phrase[phrase.length - 8]);
