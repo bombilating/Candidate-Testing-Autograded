@@ -46,7 +46,7 @@ function gradeQuiz(candidateAnswers) {
     grade += 1;
     }
   }
-  grade = grade / questions.length * 100
+  grade = grade / questions.length * 100;
   return grade;
 }
 
