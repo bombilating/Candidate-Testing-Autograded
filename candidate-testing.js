@@ -24,7 +24,7 @@ candidateName = input.question("What is your name? ");
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-for(i = 0; i < questions.length; i++) {
+for(let i = 0; i < questions.length; i++) {
   console.log(questions[i]);
   candidateAnswers.push(input.question("Please provide an answer to the question above "));
 
@@ -39,13 +39,18 @@ function gradeQuiz(candidateAnswers) {
 
   let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
 
-  for(i = 0; i < questions.length; i++) {
+  for(let i = 0; i < questions.length; i++) {
     console.log(`For question ${i + 1} you answered: ${candidateAnswers[i]} and the correct answer was ${correctAnswers[i]}`)
     if(candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
     grade += 1;
     }
   }
   grade = grade / questions.length * 100;
+  if (grade >= 80) {
+    console.log(`You have passed the test with a score of ${grade}. Congratulations!`)
+  } else {
+    console.log(`You have failed the test with a score of ${grade}. A score of atleast 80 is needed to pass`)
+  }
   return grade;
 }
 
@@ -54,12 +59,7 @@ function runProgram() {
   // TODO 1.1c: Greet candidate using their name //
    console.log("Hello " + candidateName + "!");
   askQuestion();
-  let candidateQuizGrade = gradeQuiz(this.candidateAnswers)
-  if (candidateQuizGrade >= 80) {
-    console.log(`You have passed the test with a score of ${candidateQuizGrade}. Congratulations!`)
-  } else {
-    console.log(`You have failed the test with a score of ${candidateQuizGrade}. A score of atleast 80 is needed to pass`)
-  }
+  gradeQuiz(this.candidateAnswers);
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
